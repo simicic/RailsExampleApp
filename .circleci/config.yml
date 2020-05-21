@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@1.0.0
-  ruby-linter: amyroi/ruby-linter@1.0.1
 
 jobs:
   build:
@@ -16,7 +15,6 @@ jobs:
           name: Install bundler
           command: gem install bundler:2.1.4
       - run: bundle install
-
-      - ruby-linter/rubocop:
-          files: app/**/*.rb lib/**/*.rb config/**/*.rb spec/**/*.rb script/**/*.rb
-          report_dir: $CIRCLE_TEST_REPORTS
+      - run:
+          name: Rubocop checks
+          command: rubocop
