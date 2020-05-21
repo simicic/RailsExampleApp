@@ -17,4 +17,4 @@ jobs:
       - run: bundle install
       - run:
           name: Rubocop checks
-          command: rubocop
+          command: git diff-tree -r --no-commit-id --name-only head origin/master | xargs rubocop
