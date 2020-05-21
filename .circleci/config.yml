@@ -18,5 +18,5 @@ jobs:
       - run: bundle install
 
       - ruby-linter/rubocop:
-          files: app/**/*.rb lib/**/*.rb config/**/*.rb spec/**/*.rb script/**/*.rb
-          report_dir: $CIRCLE_TEST_REPORTS
+        files: app/**/*.rb lib/**/*.rb config/**/*.rb spec/**/*.rb script/**/*.rb
+        report_dir: $CIRCLE_TEST_REPORTS
