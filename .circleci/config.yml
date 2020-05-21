@@ -1,16 +1,17 @@
 version: 2.1
 orbs:
-  ruby: circleci/ruby@0.1.2
+  ruby: circleci/ruby@1.0.0
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.7
     steps:
       - checkout
+      - ruby/install:
+          version: '2.7'
+      - run: echo "Ruby 2.7 has been installed"
       - run:
           name: Install bundler
           command: gem install bundler:2.1.4
-      - ruby/bundle-install
-
+      - run: bundle install
